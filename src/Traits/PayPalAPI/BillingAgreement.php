@@ -77,7 +77,7 @@ trait BillingAgreement
     public function makeReferenceTransaction($data)
     {
         $this->apiUrl = 'https://api-m.sandbox.paypal.com';
-        $this->apiEndPoint = 'v1/billing-agreements/agreements';
+        $this->apiEndPoint = 'v1/payments/payment';
         $this->apiUrl = collect([$this->apiUrl, $this->apiEndPoint])->implode('/');
         $this->options['json'] = $data;
 
