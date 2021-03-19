@@ -108,4 +108,16 @@ trait BillingAgreement
         return $this->doPayPalRequest();
     }
 
+    public function refundPaymentV1($payment_id, $data)
+    {
+        $this->apiUrl = 'https://api-m.sandbox.paypal.com';
+        $this->apiEndPoint = "v1/payments/sale/{$payment_id}/refund";
+        $this->apiUrl = collect([$this->apiUrl, $this->apiEndPoint])->implode('/');
+        $this->options['json'] = $data;
+
+        $this->verb = 'post';
+
+        return $this->doPayPalRequest();
+    }
+
 }
