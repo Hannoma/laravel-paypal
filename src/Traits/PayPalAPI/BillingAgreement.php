@@ -74,6 +74,28 @@ trait BillingAgreement
         return $this->doPayPalRequest();
     }
 
+    /**
+     * Cancel an existing billing agreement.
+     *
+     * @param string $agreement_id
+     *
+     * @throws \Throwable
+     *
+     * @return array|\Psr\Http\Message\StreamInterface|string
+     *
+     * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_get
+     */
+    public function cancelBillingAgreementDetails($agreement_id)
+    {
+        $this->apiUrl = 'https://api-m.sandbox.paypal.com';
+        $this->apiEndPoint = "v1/billing-agreements/agreements/{$agreement_id}/cancel";
+        $this->apiUrl = collect([$this->apiUrl, $this->apiEndPoint])->implode('/');
+
+        $this->verb = 'get';
+
+        return $this->doPayPalRequest();
+    }
+
     public function makeReferenceTransaction($data)
     {
         $this->apiUrl = 'https://api-m.sandbox.paypal.com';
