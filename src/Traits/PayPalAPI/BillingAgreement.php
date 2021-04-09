@@ -20,7 +20,7 @@ trait BillingAgreement
     public function requestBillingAgreementToken(array $data)
     {
         $this->apiEndPoint = 'v1/billing-agreements/agreement-tokens';
-        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
+        $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
         $this->options['json'] = $data;
 
         $this->verb = 'post';
@@ -42,7 +42,7 @@ trait BillingAgreement
     public function createBillingAgreement(array $data)
     {
         $this->apiEndPoint = 'v1/billing-agreements/agreements';
-        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
+        $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
         $this->options['json'] = $data;
 
         $this->verb = 'post';
@@ -64,7 +64,7 @@ trait BillingAgreement
     public function showBillingAgreementDetails($agreement_id)
     {
         $this->apiEndPoint = "v1/billing-agreements/agreements/{$agreement_id}";
-        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
+        $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -85,7 +85,7 @@ trait BillingAgreement
     public function cancelBillingAgreementDetails($agreement_id)
     {
         $this->apiEndPoint = "v1/billing-agreements/agreements/{$agreement_id}/cancel";
-        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
+        $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -95,7 +95,7 @@ trait BillingAgreement
     public function makeReferenceTransaction($data)
     {
         $this->apiEndPoint = 'v1/payments/payment';
-        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
+        $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
         $this->options['json'] = $data;
 
         $this->verb = 'post';
@@ -106,7 +106,7 @@ trait BillingAgreement
     public function refundPaymentV1($payment_id, $data)
     {
         $this->apiEndPoint = "v1/payments/sale/{$payment_id}/refund";
-        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
+        $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
         $this->options['json'] = $data;
 
         $this->verb = 'post';
