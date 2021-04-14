@@ -89,7 +89,7 @@ trait BillingAgreement
 
         $this->verb = 'post';
 
-        return $this->doPayPalRequest();
+        return $this->doPayPalRequest(false);
     }
 
     public function makeReferenceTransaction($data)
