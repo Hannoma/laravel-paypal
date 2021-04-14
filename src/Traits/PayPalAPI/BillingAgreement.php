@@ -87,7 +87,7 @@ trait BillingAgreement
         $this->apiEndPoint = "v1/billing-agreements/agreements/{$agreement_id}/cancel";
         $this->apiUrl = collect([str_replace('api', 'api-m', $this->config['api_url']), $this->apiEndPoint])->implode('/');
 
-        $this->verb = 'get';
+        $this->verb = 'post';
 
         return $this->doPayPalRequest();
     }
