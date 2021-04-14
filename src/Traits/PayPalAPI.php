@@ -2,6 +2,8 @@
 
 namespace Srmklive\PayPal\Traits;
 
+use Srmklive\PayPal\Traits\PayPalAPI\IPN;
+
 trait PayPalAPI
 {
     use PayPalAPI\Trackers;
@@ -22,6 +24,7 @@ trait PayPalAPI
     use PayPalAPI\WebHooksVerification;
     use PayPalAPI\WebHooksEvents;
     use PayPalAPI\BillingAgreement;
+    use IPN;
 
     /**
      * Login through PayPal API to get access token.
